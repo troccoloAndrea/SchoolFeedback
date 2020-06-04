@@ -1,0 +1,22 @@
+GET http://localhost:4000/api/users
+
+###
+
+POST http://localhost:4000/api/users/create
+Content-Type: application/json
+
+{
+    "username" : "5AIbortolottima",
+    "password" : "Ciao1234",
+    "nome" : "Manuel", 
+    "cognome" : "Bortolotti"
+}
+
+###
+POST http://localhost:4000/api/users/login
+Content-Type: application/json
+
+{
+    "username" : "5AIbortolottima",
+    "password" : "Ciao1234"
+}
