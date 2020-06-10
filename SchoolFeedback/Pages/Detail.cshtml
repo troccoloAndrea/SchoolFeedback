@@ -1,0 +1,96 @@
+﻿@page
+@model SchoolFeedback.Pages.DetailModel
+@{
+    ViewData["Title"] = "Detail";
+}
+    <section>
+        <div class="row">
+            <div class="col-md-10 flex-center">
+                <h1 class="display-4"><i class="fas fa-info-circle yellow"></i> Dettaglio servizio</h1>
+            </div>
+            <div class="col-md-2 flex-center">
+                <a class="btn btn-outline-warning" asp-page="/Feedback/Insert" asp-route-id="@Model.ServizioViewModel.Id"><i class="fas fa-plus-circle"></i> Feedback</a>
+            </div>
+        </div>
+        <br />
+        <hr />
+        <div class="row">
+            <div class="col-md-10">
+                <h5><b>@Model.ServizioViewModel.Titolo</b></h5>
+                <p>@Model.ServizioViewModel.Descrizione</p>
+            </div>
+            <div class="col-md-2 flex-container-1">
+                <b>valutazione media</b>
+                <div>
+                    @for (int i = 1; i <= 5; i++)
+                    {
+                        @if (Model.ServizioViewModel.RatingMedio >= i)
+                        {
+                            <i class="fas fa-star rating"></i>
+                        }
+                        else if (Model.ServizioViewModel.RatingMedio > i - 1)
+                        {
+                            <i class="fas fa-star-half-alt rating"></i>
+                        }
+                        else
+                        {
+                            <i class="far fa-star rating"></i>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+        
+        <br />
+
+        <h3><b>Valutazioni del servizio</b></h3>
+        <hr />
+        @if (Model.eleFeedback.Count != 0)
+        {
+            @foreach (var k in Model.eleFeedback)
+            {
+                <div class="row">
+                    <div class="col-md-10">
+                        <h5><b>@k.Titolo</b></h5>
+                        <p class="data"><i class="fas fa-calendar-alt blu"></i> @k.Data_ins.Day/@k.Data_ins.Month/@k.Data_ins.Year</p>
+                        <p><i class="fas fa-comment yellow"></i> @k.Commento</p>
+                    </div>
+                    <div class="col-md-2 flex-container-1">
+                        <b>valutazione</b>
+                        <div>
+                            @for (int i = 1; i <= 5; i++)
+                            {
+                                @if (k.Rating >= i)
+                                {
+                                    <i class="fas fa-star rating"></i>
+                                }
+                                else if (k.Rating > i - 1)
+                                {
+                                    <i class="fas fa-star-half-alt rating"></i>
+                                }
+                                else
+                                {
+                                    <i class="far fa-star rating"></i>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+                <hr />
+            }
+        }
+        else
+        {
+            <p class="text-center">Nessuna recensione trovata</p>
+        }
+
+
+
+
+    </section>
+
+
+
+
+
+

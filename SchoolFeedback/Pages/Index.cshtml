@@ -1,0 +1,51 @@
+﻿@page
+
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+<h1 class="display-4"><i class="fas fa-graduation-cap yellow"></i> Lista servizi</h1>
+<hr />
+
+    @foreach (var s in Model.eleServizi)
+    {
+        <h4><b>@s.Titolo</b></h4>
+        <div class="row">
+            <div class="col-md-6">
+                <p class="my-text-truncate">@s.Descrizione</p>
+
+            </div>
+            <div class="col-md-2 flex-container-1">
+                <b>valutazione media</b>
+                <div>
+                    @for (int i = 1; i <= 5; i++)
+                    {
+                        @if (s.RatingMedio >= i)
+                        {
+                            <i class="fas fa-star rating"></i>
+                        }
+                        else if (s.RatingMedio > i - 1)
+                        {
+                            <i class="fas fa-star-half-alt rating"></i>
+                        }
+                        else
+                        {
+                            <i class="far fa-star rating"></i>
+                        }
+                    }
+                </div>
+            </div>
+            <div class="col-md-2 flex-center">
+                <a asp-page="/Feedback/Insert" asp-route-id="@s.Id" class="btn btn-outline-warning"><i class="fas fa-plus-circle"></i> Feedback</a>
+            </div>
+            <div class="col-md-2 flex-center">
+                <a asp-page="/Detail" asp-route-id="@s.Id" class="btn btn-outline-primary"><i class="fas fa-info-circle"></i> Dettagli</a>
+            </div>
+        </div>
+        <hr />
+
+    }
+
+
