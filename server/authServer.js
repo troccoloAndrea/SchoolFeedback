@@ -1,6 +1,7 @@
 //dipendenze
 var express = require('express');
 var path = require('path');
+const morgan = require('morgan');
 
 var usersRouter = require('./routes/users');
 
@@ -10,6 +11,7 @@ var app = express();
 var port = "4000";
 app.set('port', port);
 
+app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));

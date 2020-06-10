@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon app.js",
-    "devStart": "nodemon authServer.js"
+    "authStart": "nodemon authServer.js",
+    "apiStart": "nodemon app.js"
   },
   "dependencies": {
     "bcrypt": "^4.0.1",

@@ -1,9 +1,13 @@
 //dipendenze
+require('dotenv').config()
 var express = require('express');
 var path = require('path');
 var http = require('http');
+const morgan = require('morgan');
+
 
 var app = express();
+
 
 //impostazione della porta
 var port = "3000";
@@ -15,7 +19,7 @@ var feedbacksRouter = require('./routes/feedbacks');
 var servicesRouter = require('./routes/services');
 
 
-
+app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -35,7 +39,7 @@ server.on('listening', onListening);
 
 
 function onListening() {
-    console.info("Listening on port " + port);
+    console.info("API REST Listening on port " + port);
 }
 
 function onError(error) {
@@ -61,4 +65,6 @@ function onError(error) {
       throw error;
   }
 }
+
 module.exports = app;
+
