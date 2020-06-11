@@ -13,7 +13,6 @@ namespace SchoolFeedback.Pages
 {
     public class IndexModel : PageModel
     {
-
         private readonly IApiServices _apiServices;
         public IndexModel(IApiServices apiServices)
         {

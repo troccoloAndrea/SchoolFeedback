@@ -21,13 +21,16 @@
         <label><b>Dai una valutazione</b></label>
         <br />
         <i class="far fa-star rating fa-2x" id="1"></i><i class="far fa-star rating fa-2x" id="2"></i><i class="far fa-star rating fa-2x" id="3"></i><i class="far fa-star rating fa-2x" id="4"></i><i class="far fa-star rating fa-2x" id="5"></i>
-
-
-
         <input type="hidden" class="form-control" asp-for="Input.Rating" id="txtRating" />
     </div>
     <input type="hidden" asp-for="Input.Servizio" value="@Model.idServizio" />
-    <button type="submit" class="btn btn-outline-success" style="width:100%;"><i class="fas fa-rocket"></i> INSERISCI</button>
+    @*<select class="form-control" id="selectUtente" asp-for="Input.Utente">
+        <option selected value="6">5AItroccoloan</option>
+        <option value="7">3BTrossima</option>
+        <option value="8">3AImanzonian</option>
+    </select>*@
+    <br />
+    <button type="submit" class="btn btn-outline-warning btn-lg" style="width:100%;"><i class="fas fa-rocket"></i> INSERISCI</button>
 </form>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>

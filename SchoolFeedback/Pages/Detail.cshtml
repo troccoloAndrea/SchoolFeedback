@@ -22,21 +22,7 @@
             <div class="col-md-2 flex-container-1">
                 <b>valutazione media</b>
                 <div>
-                    @for (int i = 1; i <= 5; i++)
-                    {
-                        @if (Model.ServizioViewModel.RatingMedio >= i)
-                        {
-                            <i class="fas fa-star rating"></i>
-                        }
-                        else if (Model.ServizioViewModel.RatingMedio > i - 1)
-                        {
-                            <i class="fas fa-star-half-alt rating"></i>
-                        }
-                        else
-                        {
-                            <i class="far fa-star rating"></i>
-                        }
-                    }
+                    <rating value="@Model.ServizioViewModel.RatingMedio"></rating>
                 </div>
             </div>
         </div>
@@ -58,21 +44,7 @@
                     <div class="col-md-2 flex-container-1">
                         <b>valutazione</b>
                         <div>
-                            @for (int i = 1; i <= 5; i++)
-                            {
-                                @if (k.Rating >= i)
-                                {
-                                    <i class="fas fa-star rating"></i>
-                                }
-                                else if (k.Rating > i - 1)
-                                {
-                                    <i class="fas fa-star-half-alt rating"></i>
-                                }
-                                else
-                                {
-                                    <i class="far fa-star rating"></i>
-                                }
-                            }
+                            <rating value="@k.Rating"></rating>
                         </div>
                     </div>
                 </div>

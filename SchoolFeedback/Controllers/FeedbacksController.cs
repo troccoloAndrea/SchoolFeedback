@@ -33,7 +33,8 @@ namespace SchoolFeedback.Controllers
             var eleFeedback = new List<Feedback>();
             foreach (DataRow row in dataTable.Rows)
             {
-                var feedback = new Feedback((int)row["Id"], (string)row["Titolo"], (string)row["Commento"], (int)row["Rating"], (DateTime)row["Data_ins"], (int)row["Utente"], (int)row["Servizio"]);
+                var feedback = new Feedback((int)row["Id"], (string)row["Titolo"], (string)row["Commento"], 
+                    (int)row["Rating"], (DateTime)row["Data_ins"], (int)row["Utente"], (int)row["Servizio"]);
                 eleFeedback.Add(feedback);
             }
             return eleFeedback;
@@ -50,7 +51,8 @@ namespace SchoolFeedback.Controllers
             var eleFeedback = new List<Feedback>();
             foreach (DataRow row in dataTable.Rows)
             {
-                var feedback = new Feedback((int)row["Id"], (string)row["Titolo"], (string)row["Commento"], (int)row["Rating"], (DateTime)row["Data_ins"],(int)row["Utente"], (int)row["Servizio"]);
+                var feedback = new Feedback((int)row["Id"], (string)row["Titolo"], (string)row["Commento"], 
+                    (int)row["Rating"], (DateTime)row["Data_ins"],(int)row["Utente"], (int)row["Servizio"]);
                 eleFeedback.Add(feedback);
             }
             return eleFeedback;
@@ -61,7 +63,6 @@ namespace SchoolFeedback.Controllers
         {
             FormattableString query = $"INSERT INTO feedback VALUES (null, {feedback.Titolo}, {feedback.Commento}, {feedback.Rating}, {feedback.Data_ins}, {feedback.Utente}, {feedback.Servizio})";
             _ = _db.Query(query);
-
             return HttpStatusCode.Created;
         }
     }
